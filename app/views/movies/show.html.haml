@@ -1,5 +1,9 @@
 %h1= @movie.title
 .jumbotron
-  = @movie.description
+  %img.img-rounded{ src: "https://pairguru-api.herokuapp.com#{@response[@movie.title.split.join('-')]["attributes"]["poster"]}", width: 500, height:500 }
+  %h2 Rating
+  = @response[@movie.title.split.join('-')]["attributes"]["rating"]
+  %p Plot
+  = @response[@movie.title.split.join('-')]["attributes"]["plot"]
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
