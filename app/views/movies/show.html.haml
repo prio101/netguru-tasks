@@ -3,3 +3,18 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+  = render 'comments/form', movie_id: @movie.id
+
+%div
+  %h2 Comments
+  .jumbotron
+    - @comments.each do |comment|
+      %h4
+        = comment.comment
+      %small Commented By
+      %strong
+        @
+        = comment.user.name
+      %bold
+        = link_to 'Delete', comment_path(comment.id, movie_id: @movie.id), method: :delete
+      %hr
