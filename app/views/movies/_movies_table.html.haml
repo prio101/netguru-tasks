@@ -4,7 +4,8 @@
       %tr
         %td= i + 1
         %td
-          %img.img-rounded{ src: "https://pairguru-api.herokuapp.com#{response[movie.title.split.join('-')]["attributes"]["poster"]}", width: 200, height:200 }
+          - unless response.empty?
+            %img.img-rounded{ src: "https://pairguru-api.herokuapp.com#{response[movie.title.split.join('-')]["attributes"]["poster"]}", width: 200, height:200 }
         %td
           %h4
             = link_to movie.title, movie_path(movie)
@@ -12,6 +13,7 @@
             %strong
               = link_to movie.genre.name, movies_genre_path(movie.genre)
             = ' (' + movie.released_at.to_s + ')'
-          %p= response[movie.title.split.join('-')]["attributes"]["plot"]
-          %h2 Rating:
-          %p= response[movie.title.split.join('-')]["attributes"]["rating"]
+          - unless response.empty?
+            %p= response[movie.title.split.join('-')]["attributes"]["plot"]
+            %h2 Rating:
+            %p= response[movie.title.split.join('-')]["attributes"]["rating"]
