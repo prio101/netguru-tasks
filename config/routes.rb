@@ -15,4 +15,10 @@ Rails.application.routes.draw do
       get :export
     end
   end
+
+  resources :comments, only: [:create, :destroy] do
+    collection do
+      get 'top_commenters', to: 'comments#top_commenters', as: :top_commenters
+    end
+  end
 end
