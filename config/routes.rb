@@ -16,6 +16,17 @@ Rails.application.routes.draw do
     end
   end
 
+  scope :api do
+    scope :v1 do
+      get "movies_list", to: "movies#movies_list", as: :movies_list
+      get "movie/:id", to: "movies#movie", as: :movie_data
+    end
+
+    scope :v2 do
+      get "movie_list", to: "movies#movies_list_with_genre", as: :movies_list_with_genre
+    end
+  end
+
   resources :comments, only: [:create, :destroy] do
     collection do
       get 'top_commenters', to: 'comments#top_commenters', as: :top_commenters
