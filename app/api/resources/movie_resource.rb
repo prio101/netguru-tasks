@@ -9,6 +9,7 @@ module Resources
     end
 
     def movie_list_response
+      return hash if titles.nil?
       call_api
       hash
     end
