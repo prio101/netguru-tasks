@@ -1,0 +1,6 @@
+%h1 Top Commenters
+- @top_commenters.each_with_index do |data, i|
+  %div
+  .jumbotron
+    %h3
+      = "#{i+1} Comment by @user#{data[0]} is Total: #{data[1]}"

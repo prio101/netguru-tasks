@@ -26,4 +26,10 @@ Rails.application.routes.draw do
       get "movie_list", to: "movies#movies_list_with_genre", as: :movies_list_with_genre
     end
   end
+
+  resources :comments, only: [:create, :destroy] do
+    collection do
+      get 'top_commenters', to: 'comments#top_commenters', as: :top_commenters
+    end
+  end
 end
