@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  comment_saved: "Comment Saved"
+  comment_not_saved: "Comment Not Saved"
+  comment_deleted: "Comment deleted"
+  comment_not_deleted: "Comment Not Deleted"
