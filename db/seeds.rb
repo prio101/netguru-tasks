@@ -82,3 +82,11 @@ if Movie.count < 100
     )
   end
 end
+
+Movie.ids.each do |mid|
+  Comment.create!(
+    comment: Faker::Lorem.sentence,
+    movie_id: mid,
+    user_id: User.pluck(:id).sample
+  )
+end
